@@ -1,0 +1,61 @@
+\documentclass[10pt]{article}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\usepackage{mathptmx}
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
+\usepackage[hidelinks]{hyperref}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage{caption}
+\usepackage{graphicx}
+\usepackage[T1]{fontenc}
+\graphicspath{{.}}
+\usepackage{listings}
+\usepackage{verbatim}
+\lstset{
+language=[LaTeX]TeX,
+backgroundcolor=\color{gray!25},
+basicstyle=\ttfamily,
+columns=flexible,
+breaklines=true
+}
+\captionsetup{labelsep=space,justification=justified,singlelinecheck=off}
+\reversemarginpar
+\usepackage[paper=a4paper,
+            %includefoot, % Uncomment to put page number above margin
+            marginparwidth=20mm,      % Length of section titles
+            marginparsep=0.8mm,       % Space between titles and text
+            margin=12mm,              % 25mm margins
+            includemp]{geometry}
+
+\begin{document}
+\section*{}
+\begin{flushleft}
+Name: Krishna Chaitanya Sripada\\
+\end{flushleft}
+\section*{Ans 6.3}
+\begin{flushleft}
+By weak learning assumption, there exists a hypothesis $h \in H$ where ($D_{t+1}$ - error) < $\frac{1}{2}$. By examining the empirical error of $h_{t}$ for the distribution $D_{t+1}$, we get, \\
+\vspace{0.5em}
+\hspace{2em} $Z_{t} = 2 \sqrt{\epsilon_{t}(1 - \epsilon_{t})}$ and $\alpha_{t} = \frac{1}{2} \log \frac{1 - \epsilon_{t}}{\epsilon_{t}}$\\
+Therefore,\\
+\vspace{0.5em}
+\hspace{2em} $\hat{R}_{D_{t+1}} = \sum\limits_{i=1}^{m} \frac{D_{t}(i)e^{-\alpha_{t} y_{i} h_{t}(x_{i})}}{Z_{t}} 1_{y_{i}h_{t}(x_{i}) <0}$\\
+\hspace{4.5em} $= \sum\limits_{y_{i}h_{t}(x_{i})<0}^{m} \frac{D_{t}(i) e^{\alpha_{t}}}{Z_{t}}$\\
+\hspace{4.5em} $= \frac{e^{\alpha_{t}}}{Z_{t}} \sum\limits_{y_{i}h_{t}(x_{i})<0}^{m} D_{t}(i)$\\
+\hspace{4.5em} $= \frac{e^{\alpha_{t}}}{Z_{t}} \epsilon_{t}$\\
+Replacing the above equation with the values stated above, we get,\\
+\vspace{0.5em}
+\hspace{4.5em} $= \frac{\sqrt{\frac{1- \epsilon_{t}}{\epsilon_{t}}}}{2 \sqrt{\epsilon_{t}(1 - \epsilon_{t})}} \epsilon_{t}$\\
+\hspace{4.5em} $= \frac{1}{2}$\\
+\vspace{0.5em}
+This shows that $h_{t}$ cannot be selected at round $t+1$.
+\end{flushleft}
+\section*{Ans 6.6}
+\begin{flushleft}
+We notice that the base hypotheses in this question can be defined to be threshold functions based on the first or second axis or constant functions. The hypotheses selected by AdaBoost are therefore chosen from the list of first or second axis or constant functions. It can be proved that the hypotheses selected in two consecutive rounds of AdaBoost are distinct. Also $h_{t}$ and $-h_{t}$ can't be selected in consecutive rounds since misclassified and classified points by $h_{t}$ are assigned to the same distribution. Thus, at each round, a distinct hypothesis is chosen. The points at coordinate $(-1, 1)$ are misclassified by all the base hypothesis.\\
+\vspace{0.5em}
+The algorithm stops when the best $\epsilon_{t}$ found is $\frac{1}{2}$. It can be shown that the error of the final classifier returned on the training set is $\frac{1}{4} (1- \epsilon)$ since it misclassifies exactly the points at coordinate $(1, -1)$.
+\end{flushleft}
+\end{document}

@@ -1,0 +1,50 @@
+\documentclass[10pt]{article}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
+\usepackage[hidelinks]{hyperref}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage{caption}
+\usepackage{graphicx}
+\usepackage[T1]{fontenc}
+\graphicspath{{.}}
+\usepackage{listings}
+\usepackage{verbatim}
+\lstset{
+language=[LaTeX]TeX,
+backgroundcolor=\color{gray!25},
+basicstyle=\ttfamily,
+columns=flexible,
+breaklines=true
+}
+\captionsetup{labelsep=space,justification=justified,singlelinecheck=off}
+\reversemarginpar
+\usepackage[paper=a4paper,
+            %includefoot, % Uncomment to put page number above margin
+            marginparwidth=20mm,      % Length of section titles
+            marginparsep=0.8mm,       % Space between titles and text
+            margin=12mm,              % 25mm margins
+            includemp]{geometry}
+
+\begin{document}
+\section*{}
+\begin{flushleft}
+Name: Krishna Chaitanya Sripada\\
+CU Identikey: krsr8608\\
+\end{flushleft}
+\section*{Explanation of Features: }
+\begin{flushleft}
+The process of creating additional features is:\\
+\vspace{0.5em}
+1. I've used the tokenizer parameter that can be passed to the CountVectorizer. This tokenizer parameter is a dictionary which is returned by the features I've used. \\
+\vspace{0.5em}
+2. English stopwords are removed by passing the ``stop\_words'' parameter to the CountVectorizer function.\\
+\vspace{0.5em} 
+3. Feature-1: Bag of words is used where the count of each word present in the data is maintained. \\
+\vspace{0.5em}
+4. Feature-2: A custom function is written to generate the bigrams where the input for this feature is a tokenized list of the ``Text'' column of the training data.\\
+\vspace{0.5em}
+5. The tokenizer used here is the ``WordPunctTokenizer'' which takes the data and uses regular expression to tokenize the data.\\
+\end{flushleft}
+\end{document}
