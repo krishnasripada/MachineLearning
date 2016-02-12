@@ -1,0 +1,24 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+data = {42: 0.15135135135135136, 112: 0.19298245614035087, 191: 0.09090909090909091, 64: 0.17415730337078653, 67: 0.1875, 252: 0.15384615384615385, 251: 0.16363636363636364, 87: 0.19718309859154928, 20: 0.14285714285714285, 22: 0.18181818181818182, 49: 0.15789473684210525, 47: 0.15454545454545454, 28: 0.15, 5: 0.18181818181818182, 4: 0.13636363636363635, 140: 0.17391304347826086, 141: 0.17391304347826086, 99: 0.10256410256410256, 121: 0.18518518518518517, 122: 0.18518518518518517, 124: 0.13157894736842105, 71: 0.19480519480519481, 102: 0.125, 93: 0.19402985074626866, 162: 0.16666666666666666, 12: 0.1320754716981132, 14: 0.18604651162790697, 16: 0.11904761904761904, 31: 0.1863799283154122, 241: 0.17142857142857143}
+
+x = sorted(data.keys(), key=int, reverse=False)
+y = sorted(data.values(), key=float, reverse=False)
+
+N = len(x)
+ind = np.arange(N)  # the x locations for the groups
+width = 0.4       # the width of the bars
+
+fig = plt.figure()
+ax = fig.add_subplot(111)
+
+yvals = y
+
+rects1 = ax.bar(ind, yvals, width, color='r')
+plt.title('User vs Percentage of Correctness')
+ax.set_xlabel('User')
+ax.set_ylabel('Percentage of Correctness')
+ax.set_xticks(ind+width)
+ax.set_xticklabels(x)
+plt.show()
